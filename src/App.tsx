@@ -1,7 +1,11 @@
-import "./App.css"
+import { css } from "styled-system/css"
 
 function App() {
-	return <>2 You Wine</>
+	return (
+		<div className={css({ fontSize: "2xl", fontWeight: "bold" })}>
+			Hello 🐼!
+		</div>
+	)
 }
 
 export default App
