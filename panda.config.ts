@@ -1,4 +1,5 @@
 import { defineConfig } from "@pandacss/dev"
+import { dialogRecipe } from "./src/components/Dialog/dialog.recipe"
 
 export default defineConfig({
 	preflight: true,
@@ -6,7 +7,11 @@ export default defineConfig({
 	exclude: [],
 	jsxFramework: "react",
 	theme: {
-		extend: {},
+		extend: {
+			slotRecipes: {
+				dialog: dialogRecipe,
+			},
+		},
 	},
 	outdir: "styled-system",
 })
