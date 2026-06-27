@@ -12,7 +12,7 @@
 		"lint": "biome check .",
 		"format": "biome format --write .",
 		"preview": "vite preview",
-		"sb": "storybook dev -p 6006",
+		"sb": "concurrently \"pnpm dev:panda\" \"storybook dev -p 6006\"",
 		"build:sb": "storybook build",
 		"test:sb": "vitest --project=storybook --run"
 	},

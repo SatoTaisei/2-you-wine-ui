@@ -1,4 +1,6 @@
 import type { Preview } from "@storybook/react-vite"
+// @ts-expect-error: side-effect import of CSS without type declarations
+import "../styled-system/styles.css"
 
 const preview: Preview = {
 	parameters: {

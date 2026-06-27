@@ -1,10 +1,11 @@
-import { cva } from "styled-system/css"
+import { cva, cx } from "styled-system/css"
 
 export interface ButtonProps {
 	primary?: boolean
 	backgroundColor?: string
 	size?: "small" | "medium" | "large"
 	label: string
+	className?: string
 	onClick?: () => void
 }
 
@@ -56,12 +57,16 @@ export const Button = ({
 	size = "medium",
 	backgroundColor,
 	label,
+	className,
 	...props
 }: ButtonProps) => {
 	return (
 		<button
 			type="button"
-			className={button({ variant: primary ? "primary" : "secondary", size })}
+			className={cx(
+				button({ variant: primary ? "primary" : "secondary", size }),
+				className,
+			)}
 			style={backgroundColor ? { backgroundColor } : undefined}
 			{...props}
 		>
