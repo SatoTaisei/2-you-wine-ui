@@ -33,7 +33,7 @@
 	},
 	"overrides": [
 		{
-			"includes": ["src/stories/**"],
+			"includes": ["src/**/*.tsx"],
 			"linter": {
 				"rules": {
 					"a11y": {

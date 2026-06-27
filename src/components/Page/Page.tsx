@@ -1,6 +1,6 @@
 import { type FC, useState } from "react"
-import { Header } from "./Header"
-import "./page.css"
+import { css } from "styled-system/css"
+import { Header } from "../Header/Header"
 
 type User = {
 	name: string
@@ -18,7 +18,39 @@ export const Page: FC = () => {
 				onCreateAccount={() => setUser({ name: "Jane Doe" })}
 			/>
 
-			<section className="storybook-page">
+			<section
+				className={css({
+					margin: "0 auto",
+					padding: "48px 20px",
+					maxWidth: "600px",
+					color: "#333",
+					fontSize: "14px",
+					lineHeight: "24px",
+					fontFamily:
+						'"Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif',
+					"& h2": {
+						display: "inline-block",
+						verticalAlign: "top",
+						margin: "0 0 4px",
+						fontWeight: "700",
+						fontSize: "32px",
+						lineHeight: "1",
+					},
+					"& p": {
+						margin: "1em 0",
+					},
+					"& a": {
+						color: "inherit",
+					},
+					"& ul": {
+						margin: "1em 0",
+						paddingLeft: "30px",
+					},
+					"& li": {
+						marginBottom: "8px",
+					},
+				})}
+			>
 				<h2>Pages in Storybook</h2>
 				<p>
 					We recommend building UIs with a{" "}
@@ -65,9 +97,31 @@ export const Page: FC = () => {
 					</a>
 					.
 				</p>
-				<div className="tip-wrapper">
-					<span className="tip">Tip</span> Adjust the width of the canvas with
-					the{" "}
+				<div
+					className={css({
+						marginTop: "40px",
+						marginBottom: "40px",
+						fontSize: "13px",
+						lineHeight: "20px",
+					})}
+				>
+					<span
+						className={css({
+							display: "inline-block",
+							verticalAlign: "top",
+							marginRight: "10px",
+							borderRadius: "1em",
+							background: "#e7fdd8",
+							padding: "4px 12px",
+							color: "#357a14",
+							fontWeight: "700",
+							fontSize: "11px",
+							lineHeight: "12px",
+						})}
+					>
+						Tip
+					</span>{" "}
+					Adjust the width of the canvas with the{" "}
 					<svg
 						width="10"
 						height="10"
