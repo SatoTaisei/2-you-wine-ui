@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 
-import { fn } from "storybook/test"
+import { expect, fn, userEvent, within } from "storybook/test"
 
 import { Button } from "./Button"
 
@@ -30,6 +30,14 @@ export const Primary: Story = {
 	args: {
 		primary: true,
 		label: "Button",
+	},
+	play: async ({ canvasElement, args }) => {
+		const canvas = within(canvasElement)
+		const button = canvas.getByRole("button", { name: /button/i })
+
+		await expect(button).toBeInTheDocument()
+		await userEvent.click(button)
+		await expect(args.onClick).toHaveBeenCalledOnce()
 	},
 }
 
