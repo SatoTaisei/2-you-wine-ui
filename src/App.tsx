@@ -1,7 +1,5 @@
-import "./App.css"
-
 function App() {
-	return <>2 You Wine</>
+	return null
 }
 
 export default App

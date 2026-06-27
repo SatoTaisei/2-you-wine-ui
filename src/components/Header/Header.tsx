@@ -1,5 +1,5 @@
-import { Button } from "./Button"
-import "./header.css"
+import { css } from "styled-system/css"
+import { Button } from "../Button"
 
 type User = {
 	name: string
@@ -19,13 +19,24 @@ export const Header = ({
 	onCreateAccount,
 }: HeaderProps) => (
 	<header>
-		<div className="storybook-header">
-			<div>
+		<div
+			className={css({
+				display: "flex",
+				justifyContent: "space-between",
+				alignItems: "center",
+				borderBottom: "1px solid rgba(0, 0, 0, 0.1)",
+				padding: "15px 20px",
+				fontFamily:
+					'"Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif',
+			})}
+		>
+			<div className={css({ display: "flex", alignItems: "center" })}>
 				<svg
 					width="32"
 					height="32"
 					viewBox="0 0 32 32"
 					xmlns="http://www.w3.org/2000/svg"
+					aria-label="Acme logo"
 				>
 					<g fill="none" fillRule="evenodd">
 						<path
@@ -42,12 +53,29 @@ export const Header = ({
 						/>
 					</g>
 				</svg>
-				<h1>Acme</h1>
+				<h1
+					className={css({
+						display: "inline-block",
+						margin: "6px 0 6px 10px",
+						fontWeight: "700",
+						fontSize: "20px",
+						lineHeight: "1",
+					})}
+				>
+					Acme
+				</h1>
 			</div>
-			<div>
+			<div
+				className={css({ display: "flex", alignItems: "center", gap: "10px" })}
+			>
 				{user ? (
 					<>
-						<span className="welcome">
+						<span
+							className={css({
+								color: "#333",
+								fontSize: "14px",
+							})}
+						>
 							Welcome, <b>{user.name}</b>!
 						</span>
 						<Button size="small" onClick={onLogout} label="Log out" />
